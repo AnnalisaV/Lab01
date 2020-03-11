@@ -31,6 +31,9 @@ public class FXMLController {
 
     @FXML
     private TextArea txtResult;
+    
+    @FXML
+    private TextArea txtTempi;
 
     @FXML
     private Button btnReset;
@@ -63,6 +66,8 @@ public class FXMLController {
     	
     	txtParola.clear(); 
     	
+    	txtTempi.setText("Tempo richiesto per l'operazione: "+Long.toString(System.nanoTime())); // per visualizzare i tempi di esecuzione di ogni operazione
+    	
     }
 
     @FXML
@@ -70,6 +75,8 @@ public class FXMLController {
     	elenco.reset();
     	txtResult.clear();
     	txtParola.clear();
+    	
+    	txtTempi.setText("Tempo richiesto per l'operazione: "+Long.toString(System.nanoTime()));
     }
 
     @FXML
@@ -84,6 +91,8 @@ public class FXMLController {
     		
         	txtResult.appendText(s+"\n");
         	}
+    	
+    	txtTempi.setText("Tempo richiesto per l'operazione: "+Long.toString(System.nanoTime()));
     	
     }
     @FXML
