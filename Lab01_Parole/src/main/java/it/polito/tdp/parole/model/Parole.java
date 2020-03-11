@@ -37,6 +37,11 @@ public class Parole{
 		listaParole.removeAll(getElenco());
 	}
 
+	public void cancella(String p) {
+		//elimino questa particolare parola 
+		listaParole.remove(p);
+		
+	}
 
 
 }

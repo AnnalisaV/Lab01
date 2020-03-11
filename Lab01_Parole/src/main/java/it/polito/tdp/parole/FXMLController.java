@@ -34,6 +34,9 @@ public class FXMLController {
 
     @FXML
     private Button btnReset;
+    
+    @FXML
+    private Button btnCancella;
 
     @FXML
     void doInsert(ActionEvent event) {
@@ -69,6 +72,20 @@ public class FXMLController {
     	txtParola.clear();
     }
 
+    @FXML
+    void doCancella(ActionEvent event) {
+
+    	String daEliminare= txtResult.getSelectedText(); 
+    	elenco.cancella(daEliminare);
+    	
+    	//aggiorno la 'videata'
+    	txtResult.clear();
+    	for (String s : elenco.getElenco()) {
+    		
+        	txtResult.appendText(s+"\n");
+        	}
+    	
+    }
     @FXML
     void initialize() {
         assert txtParola != null : "fx:id=\"txtParola\" was not injected: check your FXML file 'Scene.fxml'.";
