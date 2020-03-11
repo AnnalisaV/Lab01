@@ -1,8 +1,11 @@
 package it.polito.tdp.parole;
 
+
+import it.polito.tdp.parole.model.EccezioneParolaVuota;
 import it.polito.tdp.parole.model.Parole;
 
 import java.net.URL;
+
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,12 +37,36 @@ public class FXMLController {
 
     @FXML
     void doInsert(ActionEvent event) {
-    	// TODO
+ 
+    	//pulisco la casella ogni volta
+    	txtResult.clear();
+    	
+    	String parola= this.txtParola.getText(); 
+    	
+    	
+    	try {
+    		elenco.addParola(parola);
+    	}
+    	catch(EccezioneParolaVuota epv) {
+    		txtResult.appendText("Devi inserire una parola!\n");
+    		return; 
+    	}
+    
+    	// aggiunta la parola all'elenco lo visualizzo
+    	for (String s : elenco.getElenco()) {
+    		
+    	txtResult.appendText(s+"\n");
+    	}
+    	
+    	txtParola.clear(); 
+    	
     }
 
     @FXML
     void doReset(ActionEvent event) {
-    	// TODO
+    	elenco.reset();
+    	txtResult.clear();
+    	txtParola.clear();
     }
 
     @FXML
